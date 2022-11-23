@@ -1,0 +1,16 @@
+﻿@model LexFlix.Models.Customer
+
+@{
+    ViewData["Title"] = "Check out";
+}
+
+<div class="text-center">
+    <h3 style="color:white">Existing customer?<br /> Help us find your account,<br /> enter your email below in order to continue:</h3><br />
+    <form asp-controller="Customer" asp-action="ValidationStep">
+        <label asp-for="Email" style="color:white">Email</label>
+    <input type="email"asp-for="Email" />
+    <input type="submit" value="Validate" />   
+</form>
+</div>
+
+

@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LexFlix.Models.ViewModels.OrdersVM>
+
+@{
+    ViewData["Title"] = "Order Records";
+}
+
+<div class="text-center">
+    <h2 style="color:white">Here you can find your order records</h2>
+
+    <div class="row text-center">
+        <div class="col-lg-3 h4" style="color:white">@Html.DisplayNameFor(model => model.OrderId)</div>
+        <div class="col-lg-3 h4" style="color:white">@Html.DisplayNameFor(model => model.Title)</div>
+        <div class="col-lg-3 h4" style="color:white">@Html.DisplayNameFor(model => model.Price)</div>
+        <div class="col-lg-3 h4" style="color:white">@Html.DisplayNameFor(model => model.Director)</div>
+    </div>
+
+    @foreach (var item in Model)
+    {
+    <div class="row text-center">
+
+            <div class="col-lg-3" style="color:white">@item.OrderId</div>
+            <div class="col-lg-3" style="color:white">@item.Title</div>
+            <div class="col-lg-3" style="color:white">@item.Price</div>
+            <div class="col-lg-3" style="color:white">@item.Director</div>
+        
+    </div>
+        <div class="row">
+         
+
+
+        </div>
+    }
+</div>
+ 

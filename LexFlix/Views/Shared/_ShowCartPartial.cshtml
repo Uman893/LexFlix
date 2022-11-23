@@ -1,0 +1,40 @@
+﻿@model LexFlix.Models.ViewModels.SessionModel
+
+<tbody>
+    <tr>
+        <td><b>@Model.Title</b></td>
+        <td>@Model.Quantity</td>
+        <td>@Model.Price</td>
+        <td>@Model.TotalPrice</td>
+        <td>
+            @*<a asp-route-id="@Model.Movieid" asp-action="IncrementfromCart"><input type="button" value="More" /></a>
+            <a asp-route-id="@Model.Movieid" asp-action="DecrementfromCart"><input type="button" value="Less" /></a>
+            <a asp-route-id="@Model.Movieid" asp-action="RemoveFromCart"><input type="button" value="Remove from cart" /></a>*@
+
+            <button type="button" class="btn btn-success">
+                <a class="text-white" asp-route-id="@Model.Movieid" asp-action="IncrementfromCart">
+                    <i class="bi bi-cart-plus-fill"></i> Add +1
+                </a>
+            </button>
+
+            <button type="button" class="btn btn-warning">
+                <a class="text-white" asp-route-id="@Model.Movieid" asp-action="DecrementfromCart">
+                    <i class="bi bi-cart-dash-fill"></i> Remove -1
+                </a>
+            </button>
+
+            <button type="button" class="btn btn-danger">
+                <a class="text-white" asp-route-id="@Model.Movieid" asp-action="RemoveFromCart">
+                    <i class="bi bi-cart-x-fill"></i> Delete
+                </a>
+            </button>
+
+        </td>
+    </tr>
+</tbody>
+
+
+
+
+
+

@@ -1,0 +1,169 @@
+﻿@model LexFlix.Models.ViewModels.FrontPageVM
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*<style>
+    body{
+        background-color:black;
+    }
+</style>*@
+
+
+
+<img src="~/img/logo_red.png" class="rounded mx-auto d-block p-4" />
+
+
+<div class="container">
+
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="row">
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_010.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_009.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_008.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_007.jpg" class="d-block">
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_007.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_006.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_005.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_004.jpg" class="d-block">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="row">
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_004.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_003.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_002.jpg" class="d-block">
+                    </div>
+                    <div class="col-md-3 p-3">
+                        <img src="~/images/movie_001.jpg" class="d-block">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+</div>
+
+
+
+
+@*———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————*@
+
+<div class="row justify-content-center">
+    <h2 style="color: yellow; text-align:center;">People's Choice</h2>
+    @foreach (var movie in Model.PopularMovieList)
+    {
+        <partial name="_AllMoviesQueryPartial" model="movie"></partial>
+    }
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <h2 style="color: yellow; text-align:center;">Newest Movies</h2>
+        @foreach (var movie in Model.New5MovieList)
+        {
+            <partial name="_AllMoviesQueryPartial" model="movie"></partial>
+        }
+    </div>
+    <div class="row justify-content-center">
+        <h2 style="color: yellow; text-align:center;">Economic Movies</h2>
+        @foreach (var movie in Model.Cheap5MovieList)
+        {
+            <partial name="_AllMoviesQueryPartial" model="movie"></partial>
+        }
+    </div>
+    <div class="row g-2 justify-content-center">
+    <h2 style="color: yellow; text-align:center;">Oldest in our site</h2>
+        @foreach (var movie in Model.Old5MovieList)
+        {
+            <partial name="_AllMoviesQueryPartial" model="movie"></partial>
+        }
+    </div>
+@*    <div class="row justify-content-center">
+        @foreach (var customer in Model.BestCustomer)
+        {
+            <partial name="_BestCustomerPartial" model="customer"></partial>
+        }
+    </div>*@
+</div>
+
+<div class="row justify-content-center">
+
+    <div class="cust-content" style="max-width:400px">
+        <div class="BestCust text-center">
+            <p style="color:red"><span class="cust-tag"><b>Congratulations!</b></span>
+            <p style="color:red"><b>To</b></p>
+            <p style="color:red"><b>Our customer of the month!</b></p>
+        </div>
+        <div class="BestCust cust-container ">
+           <i> @foreach (var customer in Model.BestCustomer)
+            {
+             <partial name="_BestCustomerPartial" model="customer"></partial>
+            }</i>        
+    </div>
+        <div class="BestCust text-center">
+            <p style="color:red"><span class="cust-tag"><b>You have won!</b></span>
+            <p style="color:red"><b>3D Glasses to whatch your next movie</b></p>
+            <p style="color:red"><b>Only on FlexFlix.com</b></p>
+    </div>
+</div>
+
+</div>
+<script>
+    var slideIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("BestCust");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 6000);
+    }
+</script>

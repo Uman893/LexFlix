@@ -1,0 +1,43 @@
+﻿@model LexFlix.Models.Customer
+
+@{
+    ViewData["Title"] = "Registration";
+}
+
+<div class="center">
+    <h3 class="text-center" style="color:white">Please take a moment to register before submitting your order:</h3>
+
+    <form asp-controller="Customer" asp-action="AddCustomer">
+        <label asp-for="FirstName" style="color:white">First name:</label><br>
+        <input type="text" asp-for="FirstName" /><br>
+
+        <label asp-for="LastName" style="color:white">Last Name:</label><br>
+        <input type="text" asp-for="LastName"><br>
+
+        <label asp-for="BillingAddress" style="color:white">Billing Address:</label><br>
+        <input type="text" asp-for="BillingAddress"><br>
+
+        <label asp-for="BillingZip" style="color:white">Billing Zip:</label><br>
+        <input type="text" asp-for="BillingZip"><br>
+
+        <label asp-for="BillingCity" style="color:white">Billing City:</label><br>
+        <input type="text" asp-for="BillingCity"><br>
+
+        <label asp-for="DeliveryAddress" style="color:white">Delivery Address:</label><br>
+        <input type="text" asp-for="DeliveryAddress"><br>
+
+        <label asp-for="DeliveryZip" style="color:white">Delivery Zip:</label><br>
+        <input type="text" asp-for="DeliveryZip"><br>
+
+        <label asp-for="DeliveryCity" style="color:white">Delivery City:</label><br>
+        <input type="text" asp-for="DeliveryCity"><br>
+
+        <label asp-for="Email" style="color:white">Email:</label><br>
+        <input type="email" asp-for="Email" /><br>
+
+        <label asp-for="PhoneNo" style="color:white">Phone Number:</label><br>
+        <input type="text" asp-for="PhoneNo"><br>
+
+        <input type="submit" value="Submit"/>
+    </form>
+</div>

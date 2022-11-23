@@ -1,0 +1,66 @@
+﻿@model IEnumerable<LexFlix.Models.Movies>
+@{
+    ViewData["Title"] = "MovieAdmin";
+}
+
+<div class="text-center text-white p-3">
+    <h1><i class="bi bi-file-person"></i> Admin Center</h1>
+</div>
+<div style="width:95%; margin: 0 auto 0 auto;">
+
+<table style="width: 100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Director)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <b>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Director)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-danger "><i class="bi bi-trash"></i><a class="text-white" asp-action="Delete" asp-route-id="@item.Id"> Delete</a> </button>
+                </td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-success"><i class="bi bi-trash"></i><a class="text-white" asp-action="Edit" asp-route-id="@item.Id"> Edit</a> </button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*<div><a asp-controller="Movies" asp-action="AddMovie"><input type="button" value="Add Movie!" /></a></div>*@
+
+<br />
+<button type="button" class="btn btn-success">
+    <i class="bi bi-folder-plus"></i>
+    <a class="text-white" asp-controller="Movies" asp-action="AddMovie"> Add New Movie</a>
+</button>
+</div>

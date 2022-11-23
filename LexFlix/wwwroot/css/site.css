@@ -1,0 +1,74 @@
+* {
+    /*margin: 0;
+    padding: 0;*/
+    box-sizing:border-box;
+}
+
+html {
+    font-size: 20px;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    width: 100%;
+    /*background-color: #808080;*/
+    background-image: url('../img/bg_cinemabw.jpg');
+}
+
+.navbar {
+    background-color: rgb(255,0,0) !important;
+}
+
+.card {
+    width: 12rem;
+    /*height: 16rem;*/
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    /*width: 80%;*/
+    background-color: beige;
+    font-size: 1rem;
+    margin: 1rem auto 1rem auto
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ffd800;
+    /*color:white;*/
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(255,0,0);
+    color: white;
+}
+
+
+.sticky-footer {
+    position: sticky;
+    top: 100%;
+    background: #dc0f0f;
+    color: white;
+    text-align: center;
+    /*padding: 2px;*/
+}
+
+@media(max-width: 500px){
+
+}

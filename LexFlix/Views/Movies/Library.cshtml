@@ -1,0 +1,28 @@
+﻿@model IEnumerable<LexFlix.Models.Movies>
+@{
+    ViewData["Title"] = "Library";
+}
+
+<div class="text-center">
+    <h1>Movie Library</h1>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+            <th>Release Year</th>
+            <th>Price</th>
+            <th>Shopping Cart</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var movie in Model)
+        {
+            <partial name="_MovieLibrary" model="movie"></partial>
+        }
+    </tbody>
+</table>
+<br />
+@Html.ActionLink(" Cart", "ShowCart", "Movies", null, new{@class="btn btn-primary fa fa-shopping-cart", @style="color:black; background-color:#dc0f0f; border:none"})

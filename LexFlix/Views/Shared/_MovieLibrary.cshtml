@@ -1,0 +1,13 @@
+﻿@model LexFlix.Models.Movies
+
+<tbody>
+    <tr>
+        <td>@Model.Title</td>
+        <td>@Model.Director</td>
+        <td>@Model.ReleaseYear</td>
+        <td>@Model.Price</td>
+        <td><a asp-route-id="@Model.Id" asp-action="AddToCart"><input type="button" value="Add to Cart" /></a></td>
+    </tr>
+</tbody>
+
+@*@style="color:black; background-color:#dc0f0f; border:none"*@

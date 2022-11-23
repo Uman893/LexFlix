@@ -1,0 +1,14 @@
+﻿@model LexFlix.Models.Customer
+
+@{
+    ViewData["Title"] = "Complete Order";
+}
+
+<div class="center">
+    <h3 style="color: white">If you want to complete your order, please confirm your email address:</h3>
+    <form asp-controller="Customer" asp-action="ValidationStep">
+        <label asp-for="Email" style=" color: white ">Email</label>
+        <input type="email" asp-for="Email" />
+        <input type="submit" value="Validate" />
+    </form>
+</div>

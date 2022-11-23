@@ -1,0 +1,63 @@
+﻿@model LexFlix.Models.Movies
+
+<div class="col-md-2 col-xs-6 border-primary mb-3 p-3">
+    <div class="card mb-3 bg-dark border-warning border-2">
+        <div class="row g-0">
+            <div class="col-md-12">
+                <div class="card-header text-warning text-center bg-dark">
+                    <p class="card-text">
+                        @*<h6 class="card-title" style="font-size: 50px">
+                            @Model.Title
+                        </h6>*@
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <img src="@Model.ImageURL" width="100%" alt="@Model.Title">              
+            </div>
+            <div class="col-md-12">
+                <div class="card-body bg-dark text-warning">
+                    <p class="card-text" style="font-size: 15px">Director: @Model.Director</p>
+                    <p class="card-text" style="font-size: 15px">Year: @Model.ReleaseYear</p>
+                    <p class="card-text" style="font-size: 15px">Price: @Model.Price</p>
+                </div>
+            </div>
+
+            <div class="col-md-12 p-1">
+                <div class="card-footer bg-dark">
+                    <p class="card-text">
+                       @* <a class="btn btn-danger text-white d-flex justify-content-center"
+                           asp-action="AddToCart"
+                           asp-route-id="@Model.Id">
+                            <i class="bi bi-cart-plus"> </i> Add to Cart
+                        </a>*@
+                        <button class="btn btn-primary" onclick="AddToCart(@Model.Id)">AddToCart</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    function AddToCart(movieId)
+    {     
+        console.log(movieId);
+        $.ajax({
+            type: "Post",
+            url: '/Home/AddToCart',
+            dataType: "Json",
+            Cache: false,
+            data: { id : movieId},
+            success: function (data){
+                document.getElementById("ShopCart").Value = data.Value;
+            },
+            error: function(data){
+                console.log("Catch me outside");
+            }
+        });
+    }
+
+
+</script>

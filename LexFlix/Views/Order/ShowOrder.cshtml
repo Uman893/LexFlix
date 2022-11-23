@@ -1,0 +1,14 @@
+﻿@model LexFlix.Models.ViewModels.OrdersVM
+
+<div class="text-center">
+<h3 style="color:white">Looking for previous orders?<br /> Enter your Email below to find all those details:</h3>
+
+ <form aso-controller="Order" asp-action="FindOrder">
+        <label asp-for="Email" style="color:white">Email</label>
+    <input type="email" asp-for="Email" />
+    <input type="submit" value="Find Order" />
+</form>
+</div>
+
+
+

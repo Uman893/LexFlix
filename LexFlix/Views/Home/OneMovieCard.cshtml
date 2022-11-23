@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Movies>
+
+@foreach (var item in Model)
+{
+
+
+    <div class="col-md-2 col-xs-6 border-primary mb-3 p-3">
+        <div class="card mb-3 bg-dark border-warning border-2">
+            <div class="row g-0">
+                <div class="col-md-12">
+                    <div class="card-header text-warning text-center bg-dark">
+                        <p class="card-text">
+                            <h6 class="card-title">
+                                @item.Title
+                            </h6>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <img src="@item.ImageURL" width="100%" alt="@item.Title">
+                </div>
+                <div class="col-md-12">
+                    <div class="card-body bg-dark text-warning">
+                        @*<p class="card-text">@item.Title</p>*@
+                        <p class="card-text" style="font-size: 15px">Director: @item.Director</p>
+                        <p class="card-text" style="font-size: 15px">Year: @item.ReleaseYear</p>
+                        <p class="card-text" style="font-size: 15px">Price: @item.Price</p>
+                    </div>
+                </div>
+
+                <div class="col-md-12 p-1">
+                    <div class="card-footer bg-dark">
+                        <p class="card-text">
+                            <a class="btn btn-danger text-white d-flex justify-content-center"
+                           asp-action="AddToCart"
+                           asp-route-id="@item.Id">
+                                <i class="bi bi-cart-plus"> </i> Add to Cart
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
